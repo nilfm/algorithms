@@ -11,6 +11,7 @@
         * [Kruskal's algorithm <a name="user-content-kruskal"></a>](#kruskals-algorithm-)
   * [Data Structures <a name="user-content-ds"></a>](#data-structures-)
      * [Trie <a name="user-content-trie"></a>](#trie-)
+     * [CircularQueue <a name="user-content-circularqueue"></a>](#trie-)
 
 ## Introduction <a name="intro"></a>
 This repository will store a collection of algorithms and data structures I implemented for my own learning purposes, with some information about each of them.
@@ -55,3 +56,13 @@ This repository will store a collection of algorithms and data structures I impl
 * Time complexity of removal: O(n), where n is the size of the string
 * Time complexity of checking presence of a string: O(n), where n is the size of the string
 * Time complexity of finding all strings that start with a given prefix: O(sum(n_i)), where n_i are the sizes of the strings that start with that prefix
+
+### CircularQueue <a name="circularqueue"></a>
+* Language: C++
+* Implemented using a std::vector<T>
+* Allows for insertion, popping of oldest element and peeking of front and back elements
+* Space complexity: O(max_size), where max_size is a parameter in the constructor
+* Time complexity of insertion: O(1)
+* Time complexity of removal: O(1)
+* Time complexity of peeking front: O(1)
+* Time complexity of peeking back: O(1)
