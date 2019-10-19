@@ -11,7 +11,8 @@
         * [Kruskal's algorithm <a name="user-content-kruskal"></a>](#kruskals-algorithm-)
   * [Data Structures <a name="user-content-ds"></a>](#data-structures-)
      * [Trie <a name="user-content-trie"></a>](#trie-)
-     * [CircularQueue <a name="user-content-circularqueue"></a>](#trie-)
+     * [CircularQueue <a name="user-content-circularqueue"></a>](#circularqueue-)
+     * [LRUCache <a name="user-content-lrucache"></a>](#lrucache-)
 
 ## Introduction <a name="intro"></a>
 This repository will store a collection of algorithms and data structures I implemented for my own learning purposes, with some information about each of them.
@@ -66,3 +67,11 @@ This repository will store a collection of algorithms and data structures I impl
 * Time complexity of removal: O(1)
 * Time complexity of peeking front: O(1)
 * Time complexity of peeking back: O(1)
+
+### LRU Cache <a name="lrucache"></a>
+* Language: C++
+* Implemented using a custom Node struct, a custom LinkedList class and an std::unordered_map<K, Node<K, V>>
+* Allows for efficient insertion and retrieval of key-value pairs while maintaining an LRU policy for evicting keys.
+* Space complexity: O(n), where n is the number of key-value pairs in the cache (this depends on the implementation of std::unordered_map)
+* Time complexity of insertion: O(1)
+* Time complexity of retrieval: O(1)

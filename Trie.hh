@@ -1,7 +1,6 @@
 #ifndef __TRIE__
 #define __TRIE__
 
-#include <iostream>
 #include <vector>
 #include <string>
 #include <map>

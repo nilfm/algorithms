@@ -1,4 +1,5 @@
 #include "Trie.hh"
+#include <iostream>
 
 const char END = '#';
 	
