@@ -1,7 +1,7 @@
 #include "Trie.hh"
 #include <iostream>
 
-const char END = '#';
+const char END = '$';
 	
 void Trie::words(std::string start, std::vector<std::string>& v, std::shared_ptr<TrieNode> head, std::string curr) {
 	if (head == nullptr) return;
