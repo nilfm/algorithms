@@ -18,6 +18,40 @@ struct Node {
 		prev = std::make_shared<Node<K, V>>();
 		next = std::make_shared<Node<K, V>>();
 	}
+	Node(const Node& other) {
+		key = other.key;
+		value = other.value;
+		prev = next = nullptr;
+	}
+	Node(Node&& other) {
+		key = other.key;
+		other.key = K();
+		value = other.value;
+		other.value = V();
+		prev = other.prev;
+		other.prev = nullptr;
+		next = other.next;
+		other.next = nullptr;
+	}
+	Node& operator=(const Node& other) {
+		if (this == &other) return *this;
+		key = other.key;
+		value = other.value;
+		prev = next = nullptr;
+		return *this;
+	}
+	Node& operator=(Node&& other) {
+		if (this == &other) return *this;
+		key = other.key;
+		other.key = K();
+		value = other.value;
+		other.value = V();
+		prev = other.prev;
+		other.prev = nullptr;
+		next = other.next;
+		other.next = nullptr;
+		return *this;
+	}
 };
 
 template<class K, class V>
@@ -32,6 +66,56 @@ public:
 	LinkedList() {
 		front = nullptr;
 		rear = nullptr;
+	}
+	LinkedList(const LinkedList& other) {
+		if (other.front == nullptr) {
+			front = rear = nullptr;
+		}
+		else {
+			front = std::make_shared<Node<K, V>>(*(other.front));
+			std::shared_ptr<Node<K, V>> temp_other = (other.front)->next;
+			std::shared_ptr<Node<K, V>> temp = front;
+			while (temp_other) {
+				temp->next = std::make_shared<Node<K, V>>(*temp_other);
+				(temp->next)->prev = temp;
+				temp = temp->next;
+				temp_other = temp_other->next;
+			}
+			rear = temp;
+		}
+	}
+	LinkedList(LinkedList&& other) {
+		front = other.front;
+		other.front = nullptr;
+		rear = other.rear;
+		other.rear == nullptr;
+	}
+	LinkedList& operator=(const LinkedList& other) {
+		if (this == &other) return *this;
+		if (other.front == nullptr) {
+			front = rear = nullptr;
+		}
+		else {
+			front = std::make_shared<Node<K, V>>(*(other.front));
+			std::shared_ptr<Node<K, V>> temp_other = (other.front)->next;
+			std::shared_ptr<Node<K, V>> temp = front;
+			while (temp_other) {
+				temp->next = std::make_shared<Node<K, V>>(*temp_other);
+				(temp->next)->prev = temp;
+				temp = temp->next;
+				temp_other = temp_other->next;
+			}
+			rear = temp;
+		}
+		return *this;
+	}
+	LinkedList& operator=(LinkedList&& other) {
+		if (this == &other) return *this;
+		front = other.front;
+		other.front = nullptr;
+		rear = other.rear;
+		other.rear == nullptr;
+		return *this;
 	}
 	std::shared_ptr<Node<K, V>> add_page(K key, V value) {
 		std::shared_ptr<Node<K, V>> page = std::make_shared<Node<K, V>>(key, value);
@@ -74,6 +158,16 @@ public:
 	std::shared_ptr<Node<K, V>> get_rear_page() {
 		return rear;
 	}
+	
+	std::unordered_map<K, std::shared_ptr<Node<K, V>>> get_map() {
+		std::unordered_map<K, std::shared_ptr<Node<K, V>>> ret;
+		std::shared_ptr<Node<K, V>> curr = front;
+		while (curr) {
+			ret[curr->key] = curr;
+			curr = curr->next;
+		}
+		return ret;
+	}
 };
 
 template<class K, class V>
@@ -90,6 +184,38 @@ public:
 		max_size = _max_size;
 		sz = 0;
 		page_list = std::make_shared<LinkedList<K, V>>();
+	}
+	LRUCache(const LRUCache& other) {
+		max_size = other.max_size;
+		sz = other.sz;
+		page_list = std::make_shared<LinkedList<K, V>>(*(other.page_list));
+		page_map = page_list->get_map();
+	}
+	LRUCache(LRUCache&& other) {
+		max_size = other.max_size;
+		other.max_size = 0;
+		sz = other.sz;
+		other.sz = 0;
+		page_list = std::move(other.page_list);
+		page_map = std::move(other.page_map);
+	}
+	LRUCache& operator=(const LRUCache& other) {
+		if (this == &other) return *this;
+		max_size = other.max_size;
+		sz = other.sz;
+		page_list = std::make_shared<LinkedList<K, V>>(*(other.page_list));
+		page_map = page_list->get_map();
+		return *this;
+	}
+	LRUCache& operator=(LRUCache&& other) {
+		if (this == &other) return *this;
+		max_size = other.max_size;
+		other.max_size = 0;
+		sz = other.sz;
+		other.sz = 0;
+		page_list = std::move(other.page_list);
+		page_map = std::move(other.page_map);
+		return *this;
 	}
 	~LRUCache() {}
 	
