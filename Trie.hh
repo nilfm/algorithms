@@ -9,6 +9,10 @@
 
 struct TrieNode {
 	std::map<char, std::shared_ptr<TrieNode>> children;
+	TrieNode();
+	TrieNode(const TrieNode& other);
+	TrieNode& operator=(const TrieNode& other);
+	static void copy(std::map<char, std::shared_ptr<TrieNode>>& me, const std::map<char, std::shared_ptr<TrieNode>>& other); 
 };
 
 class Trie {
@@ -17,10 +21,15 @@ private:
 	int sz;
 	
 	void words(std::string start, std::vector<std::string>& v, std::shared_ptr<TrieNode> head, std::string curr);
-	
+
 public:
 	Trie();
 	Trie(const std::vector<std::string>& v);
+	Trie(const Trie& other);
+	Trie(Trie&& other);
+	Trie& operator=(const Trie& other);
+	Trie& operator=(Trie&& other);
+	
 	~Trie();
 	
 

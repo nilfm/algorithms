@@ -2,7 +2,61 @@
 #include <iostream>
 
 const char END = '$';
-	
+
+TrieNode::TrieNode() {}	
+TrieNode::TrieNode(const TrieNode& other) {
+	copy(children, other.children);
+}
+TrieNode& TrieNode::operator=(const TrieNode& other) {
+	if (this == &other) return *this;
+	copy(children, other.children);
+	return *this;
+}
+
+void TrieNode::copy(std::map<char, std::shared_ptr<TrieNode>>& me, const std::map<char, std::shared_ptr<TrieNode>>& other) {
+	for (auto p : other) {
+		me[p.first] = std::make_shared<TrieNode>();
+		copy(me[p.first]->children, (p.second)->children);
+	}
+}
+
+
+Trie::Trie() {
+	sz = 0;
+	head = std::make_shared<TrieNode>();	
+}
+Trie::Trie(const std::vector<std::string>& v) {
+	sz = 0;
+	head = std::make_shared<TrieNode>();
+	for (std::string s : v) insert(s);
+}
+Trie::Trie(const Trie& other) {
+	sz = other.sz;
+	head = std::make_shared<TrieNode>();
+	*head = *(other.head);
+}
+Trie::Trie(Trie&& other) {
+	sz = other.sz;
+	head = other.head;
+	other.sz = 0;
+	other.head = nullptr;
+}
+Trie& Trie::operator=(const Trie& other) {
+	if (this == &other) return *this;
+	sz = other.sz;
+	head = std::make_shared<TrieNode>();
+	*head = *(other.head);	
+	return *this;
+}
+Trie& Trie::operator=(Trie&& other) {
+	if (this == &other) return *this;
+	head = other.head;
+	sz = other.sz;
+	return *this;
+}
+
+Trie::~Trie() {}
+
 void Trie::words(std::string start, std::vector<std::string>& v, std::shared_ptr<TrieNode> head, std::string curr) {
 	if (head == nullptr) return;
 	for (auto p : head->children) {
@@ -14,18 +68,6 @@ void Trie::words(std::string start, std::vector<std::string>& v, std::shared_ptr
 		}
 	}
 }
-	
-Trie::Trie() {
-	sz = 0;
-	head = std::make_shared<TrieNode>();	
-}
-Trie::Trie(const std::vector<std::string>& v) {
-	sz = 0;
-	head = std::make_shared<TrieNode>();
-	for (std::string s : v) insert(s);
-}
-Trie::~Trie() {}
-
 
 // Returns true if s wasn"t there and was successfully inserted
 bool Trie::insert(std::string& s) {
@@ -104,6 +146,7 @@ std::vector<std::string> Trie::words(std::string start = "") {
 int main() {
 	std::vector<std::string> v = {"aaa", "aaaa", "aa", "aba", "abc"};
 	Trie T(v);
+	
 	std::vector<std::string> rem = {"aaa", "bbb", "aba"};
 	
 	std::cout << "Size: " << T.size() << std::endl;
@@ -125,9 +168,10 @@ int main() {
 	for (auto word : words) {
 		std::cout << "  Found the word " << word << std::endl;
 	}
+	std::cout << std::endl;
 	
 	for (auto word : rem) {
-		std::cout << std::endl << "Trying to remove " << word << std::endl;
+		std::cout << "Trying to remove " << word << std::endl;
 		if (T.remove(word)) {
 			std::cout << "  Successfully removed" << std::endl;
 		}
