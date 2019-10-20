@@ -15,7 +15,6 @@ int main() {
 	}
 	std::cout << std::endl;
 
-	/*
 	//Now the 6 should be the last one
 	std::cout << "Adding 7" << std::endl;
 	cache.put(7, 14);
@@ -23,7 +22,6 @@ int main() {
 	std::cout << cache.get(6) << std::endl;
 	std::cout << "Getting 7" << std::endl;
 	std::cout << cache.get(7) << std::endl;
-	*/
 	
 	std::cout << std::endl << "Copy constructor:" << std::endl;
 	LRUCache<int, int> cache2(cache);
@@ -35,8 +33,8 @@ int main() {
 
 	std::cout << std::endl << "Move constructor:" << std::endl;
 	LRUCache<int, int> cache3(std::move(cache2));
-	std::cout << "Getting 6 from old cache: " << cache2.get(6) << std::endl;
-	std::cout << "Getting 6 from new cache: " << cache3.get(6) << std::endl;
+	std::cout << "Getting 7 from old cache: " << cache2.get(7) << std::endl;
+	std::cout << "Getting 7 from new cache: " << cache3.get(7) << std::endl;
 	std::cout << "Old cache size: " << cache2.size() << std::endl;
 	std::cout << "New cache size: " << cache3.size() << std::endl;
 	
@@ -52,8 +50,8 @@ int main() {
 	std::cout << std::endl << "Move assignment operator:" << std::endl;
 	LRUCache<int, int> cache5(0);
 	cache5 = std::move(cache3);
-	std::cout << "Getting 6 from old cache: " << cache3.get(6) << std::endl;
-	std::cout << "Getting 6 from new cache: " << cache5.get(6) << std::endl;
+	std::cout << "Getting 7 from old cache: " << cache3.get(7) << std::endl;
+	std::cout << "Getting 7 from new cache: " << cache5.get(7) << std::endl;
 	std::cout << "Old cache size: " << cache3.size() << std::endl;
 	std::cout << "New cache size: " << cache5.size() << std::endl;
 }

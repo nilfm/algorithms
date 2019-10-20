@@ -31,7 +31,7 @@ struct Triplet {
 VP kruskal() {
 	vector<Triplet> v(m, {0, 0, 0});
 	int k = 0;
-	for (int i = 0; i < graph.size(); i++) {
+	for (int i = 0; i < (int)graph.size(); i++) {
 		for (auto& p : graph[i]) {
 			v[k] = Triplet(p.first, i, p.second);
 			k++;

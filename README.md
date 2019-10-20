@@ -13,6 +13,7 @@
      * [Trie <a name="user-content-trie"></a>](#trie-)
      * [CircularQueue <a name="user-content-circularqueue"></a>](#circularqueue-)
      * [LRUCache <a name="user-content-lrucache"></a>](#lrucache-)
+     * [MaxMinStack <a name="user-content-maxminstack"></a>](#maxminstack-)
 
 ## Introduction <a name="intro"></a>
 This repository will store a collection of algorithms and data structures I implemented for my own learning purposes, with some information about each of them.
@@ -75,3 +76,14 @@ This repository will store a collection of algorithms and data structures I impl
 * Space complexity: O(n), where n is the number of key-value pairs in the cache (this depends on the implementation of std::unordered_map)
 * Time complexity of insertion: O(1)
 * Time complexity of retrieval: O(1)
+
+### Max Min Stack <a name="maxminstack"></a>
+* Language: C++
+* Implemented using std::stack<T>
+* Allows to efficiently retrieve the top-most element in the stack, as well as the minimum and maximum.
+* Space complexity: O(n), where n is the number of elements in the stack.
+* Time complexity of insertion: O(1)
+* Time complexity of removal: O(1)
+* Time complexity of retrieval of top element: O(1)
+* Time complexity of retrieval of min element: O(1)
+* Time complexity of retrieval of max element: O(1)

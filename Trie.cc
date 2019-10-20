@@ -74,7 +74,7 @@ bool Trie::insert(std::string& s) {
 	s.push_back(END);
 	bool res = false;
 	std::shared_ptr<TrieNode> curr = head;
-	for (int i = 0; i < s.size(); i++) {
+	for (int i = 0; i < (int)s.size(); i++) {
 		if (not (curr->children).count(s[i])) {
 			res = true;
 			(curr->children)[s[i]] = std::make_shared<TrieNode>();
@@ -90,7 +90,7 @@ bool Trie::remove(std::string& s) {
 	s.push_back(END);
 	std::stack<std::shared_ptr<TrieNode>> to_remove;
 	std::shared_ptr<TrieNode> curr = head;
-	for (int i = 0; i < s.size(); i++) {
+	for (int i = 0; i < (int)s.size(); i++) {
 		if (not (curr->children).count(s[i])) {
 			return false;
 		}
@@ -115,7 +115,7 @@ bool Trie::remove(std::string& s) {
 bool Trie::contains(std::string& s) {
 	s.push_back(END);
 	std::shared_ptr<TrieNode> curr = head;
-	for (int i = 0; i < s.size(); i++) {
+	for (int i = 0; i < (int)s.size(); i++) {
 		if (not (curr->children).count(s[i])) {
 			return false;
 		}
@@ -133,7 +133,7 @@ int Trie::size() {
 std::vector<std::string> Trie::words(std::string start = "") {
 	std::vector<std::string> res;
 	std::shared_ptr<TrieNode> curr = head;
-	for (int i = 0; i < start.size(); i++) {
+	for (int i = 0; i < (int)start.size(); i++) {
 		if (not (curr->children).count(start[i])) {
 			return std::vector<std::string>();
 		}
