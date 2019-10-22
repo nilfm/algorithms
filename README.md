@@ -72,7 +72,7 @@ This repository will store a collection of algorithms and data structures I impl
 
 ### LRU Cache <a name="lrucache"></a>
 * Language: C++
-* Implemented using a custom Node struct, a custom LinkedList class and an std::unordered_map<K, Node<K, V>>
+* Implemented using a custom Node struct, a custom LinkedList class and an std::unordered_map<K, Node<K, V>*>
 * Allows for efficient insertion and retrieval of key-value pairs while maintaining an LRU policy for evicting keys.
 * Space complexity: O(n), where n is the number of key-value pairs in the cache (this depends on the implementation of std::unordered_map)
 * Time complexity of insertion: O(1)
