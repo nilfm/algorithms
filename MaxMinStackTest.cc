@@ -1,44 +1,82 @@
 #include "MaxMinStack.hh"
+#include "Testing.hh"
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cstdlib>
+#include <cassert>
+
+template<class T>
+class MaxMinStackTest {
+private:
+    std::vector<T> v;
+public:
+    MaxMinStackTest() {}
+
+    // Inserts x at the top of the stack
+    void push(const T& x) {
+        v.push_back(x);
+    }
+    
+    // Removes the top-most element in the stack. If the stack is empty, return false and does nothing
+    bool pop() {
+        if (empty()) return false;
+        v.pop_back();
+        return true;
+    }
+    
+    // Returns the top-most element in the stack, or T() if empty
+    T top() {
+        if (empty()) return T();
+        return v[v.size()-1];
+    }
+
+    // Returns the smallest element in the stack, or T() if empty
+    T min() {
+        if (empty()) return T();
+        T best = v[0];
+        for (T x : v) if (x < best) best = x;
+        return best;
+    }
+    
+    // Returns the greatest element in the stack, or T() if empty
+    T max() {
+        if (empty()) return T();
+        T best = v[0];
+        for (T x : v) if (x > best) best = x;
+        return best;
+    }
+    
+    // Returns true if the stack is empty or false otherwise
+    bool empty() {
+        return size() == 0;
+    }
+    
+    // Returns the number of elements in the stack
+    int size() {
+        return v.size();
+    }
+};
+
 
 int main() {
     MaxMinStack<int> st;
-    std::cout << "Trying to pop from empty stack: " << std::boolalpha << st.pop() << std::endl << std::endl;
-    std::vector<int> test = {1, 3, 2, 4, 5, 0, -1, 6};
-    for (int x : test) {
-        st.push(x);
-        std::cout << "Pushing " << x << std::endl;
-        std::cout << "Top: " << st.top() << std::endl;
-        std::cout << "Min: " << st.min() << std::endl;
-        std::cout << "Max: " << st.max() << std::endl << std::endl;
-    }
-    while (not st.empty()) {
-        std::cout << "Popping " << st.top() << std::endl;
-        st.pop();
-        if (not st.empty()) {
-            std::cout << "Top: " << st.top() << std::endl;
-            std::cout << "Min: " << st.min() << std::endl;
-            std::cout << "Max: " << st.max() << std::endl;
+    MaxMinStackTest<int> test;
+    int NUM_TESTS = 100000;
+    srand(0);
+    Testing::introduce("MaxMinStack", NUM_TESTS);
+    for (int i = 0; i < NUM_TESTS; i++) {
+        Testing::percentage(i, NUM_TESTS);
+        int ins = rand()%1000;
+        st.push(ins);
+        test.push(ins);
+        if (not st.empty() and rand()%3 == 0) {
+            st.pop();
+            test.pop();
         }
-        else std::cout << "Empty" << std::endl;
-        std::cout << std::endl;
+        assert(st.top() == test.top());
+        assert(st.min() == test.min());
+        assert(st.max() == test.max());
     }
-    
-    std::cout << "Constructing from std::stack with 1, 2, 3, 4:" << std::endl;
-    std::stack<int> other;
-    for (int x : {1, 2, 3, 4}) other.push(x);
-    MaxMinStack<int> st2(other);
-    while (not st2.empty()) {
-        std::cout << "Popping " << st2.top() << std::endl;
-        st2.pop();
-        if (not st2.empty()) {
-            std::cout << "Top: " << st2.top() << std::endl;
-            std::cout << "Min: " << st2.min() << std::endl;
-            std::cout << "Max: " << st2.max() << std::endl;
-        }
-        else std::cout << "Empty" << std::endl;
-        std::cout << std::endl;
-    }
+    Testing::success();
 }

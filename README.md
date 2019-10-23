@@ -89,6 +89,7 @@ This repository will store a collection of algorithms and data structures I impl
 * Time complexity of retrieval of top element: O(1)
 * Time complexity of retrieval of min element: O(1)
 * Time complexity of retrieval of max element: O(1)
+* Implemented testing by comparison with naive algorithm
 
 ### Fenwick Tree <a name="fenwicktree"></a>
 * Language: C++
@@ -108,3 +109,4 @@ This repository will store a collection of algorithms and data structures I impl
 * Time complexity of median query: O(1)
 * Time complexity of inserting element: O(log(n))
 * Time complexity of erasing element: O(log(n))
+* Implemented testing by comparison with naive algorithm
