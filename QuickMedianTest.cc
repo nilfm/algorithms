@@ -1,27 +1,24 @@
 #include "QuickMedian.hh"
+#include "QuickMedianVec.hh"
+#include <cstdlib>
 #include <iostream>
 #include <cassert>
 
 int main() {
-    std::vector<int> v = {1, 1, 1, 1, 2, 3, 4, 5, 6, 7, 8};
-    QuickMedian<int> m(v);
-    // Median is now 3
-    assert(m.median() == 3);
-    m.insert(9);
-    // Median is still 3
-    assert(m.median() == 3);
-    m.erase(1);
-    // Median is now 4
-    assert(m.median() == 4);
-    m.erase(2);
-    // Median is still 4
-    assert(m.median() == 4);
-    m.erase(3);
-    // Median is now 5
-    assert(m.median() == 5);
-    m.erase(4);
-    // Median is still 5
-    assert(m.median() == 5);
+    srand(0);
+    QuickMedian<int> q;
+    QuickMedianVec<int> v;
+    for (int i = 0; i < 10000; i++) {
+        int ins = rand()%1000;
+        q.insert(ins);
+        v.insert(ins);
+        if (rand()%10 == 0) {
+            int del = v.random();
+            q.erase(del);
+            v.erase(del);
+        }
+        assert(q.median() == v.median());
+    }
     
     std::cout << "Passed all tests" << std::endl;
 }
