@@ -28,7 +28,7 @@ manacher: manacher.cc
 MaxMinStackTest: MaxMinStack.hh MaxMinStackTest.cc
 	$(CC) $(CFLAGS) MaxMinStackTest.cc -o MaxMinStackTest
 	
-QuickMedianTest: QuickMedian.hh QuickMedianTest.cc
+QuickMedianTest: QuickMedian.hh QuickMedianTest.cc QuickMedianVec.hh
 	$(CC) $(CFLAGS) QuickMedianTest.cc -o QuickMedianTest
 	
 Trie: Trie.hh Trie.cc

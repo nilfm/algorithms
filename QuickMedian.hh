@@ -4,7 +4,7 @@
 #include <set>
 #include <vector>
 
-// T has to implement the comparison operator < and division by an int
+// T has to implement the comparison operator <
 template<class T>
 class QuickMedian {
 private:
@@ -49,7 +49,7 @@ public:
         if (it != low.end()) low.erase(it);
         else {
             auto it2 = high.find(x);
-            if (it == low.end()) return false;
+            if (it == high.end()) return false;
             high.erase(it2);
         }
         rebalance();
@@ -59,7 +59,7 @@ public:
     // Returns the median of the elements currently in the structure. If the structure is empty, returns T()
     T median() {
         if (empty()) return T();
-        if (low.size() == high.size()) return (big_low() + small_high())/2;
+        if (low.size() == high.size()) return big_low();
         else if (low.size() == high.size()+1) return big_low();
         else return small_high();
     }
