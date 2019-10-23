@@ -15,6 +15,7 @@
      * [LRUCache <a name="user-content-lrucache"></a>](#lrucache-)
      * [MaxMinStack <a name="user-content-maxminstack"></a>](#maxminstack-)
      * [FenwickTree <a name="user-content-fenwicktree"></a>](#fenwicktree-)
+     * [QuickMedian <a name="user-content-quickmedian"></a>](#quickmedian-)
 
 ## Introduction <a name="intro"></a>
 This repository will store a collection of algorithms and data structures I implemented for my own learning purposes, with some information about each of them.
@@ -97,3 +98,13 @@ This repository will store a collection of algorithms and data structures I impl
 * Time complexity of construction from vector: O(n*log(n)) (TODO: can be improved to O(n))
 * Time complexity of range sum query: O(log(n)) 
 * Time complexity of updating element: O(log(n))
+
+### Quick Median <a name="quickmedian"></a>
+* Language: C++
+* Implemented using std::multiset<T>
+* Allows to efficiently query for the median of its elements, as well as insert or erase elements from it. 
+* Space complexity: O(n), where n is the number of elements in the structure
+* Time complexity of construction from vector: O(n*log(n))
+* Time complexity of median query: O(1)
+* Time complexity of inserting element: O(log(n))
+* Time complexity of erasing element: O(log(n))
