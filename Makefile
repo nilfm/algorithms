@@ -4,7 +4,7 @@ CFLAGS = -std=c++17 -O2 -Wall -Wextra -Wpedantic
 SRC = *.cc
 HEADERS = *.hh
 TESTING = Testing.cc Testing.hh
-ALL = CircularQueueTest dijkstra FenwickTree kmp kruskal LRUCacheTest manacher MaxMinStackTest QuickMedianTest Trie
+ALL = CircularQueueTest dijkstra FenwickTreeTest kmp kruskal LRUCacheTest manacher MaxMinStackTest QuickMedianTest Trie
 
 all: $(ALL)
 
@@ -35,8 +35,8 @@ QuickMedianTest: QuickMedian.hh QuickMedianTest.cc $(TESTING)
 Trie: Trie.hh Trie.cc $(TESTING)
 	$(CC) $(CFLAGS) Trie.cc Testing.cc -o Trie
 	
-FenwickTree: FenwickTree.hh FenwickTree.cc $(TESTING)
-	$(CC) $(CFLAGS) FenwickTree.cc Testing.cc -o FenwickTree
+FenwickTreeTest: FenwickTree.hh FenwickTreeTest.cc $(TESTING)
+	$(CC) $(CFLAGS) FenwickTreeTest.cc Testing.cc -o FenwickTreeTest
 
 clean:
 	rm $(ALL)

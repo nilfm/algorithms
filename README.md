@@ -60,6 +60,7 @@ This repository will store a collection of algorithms and data structures I impl
 * Time complexity of removal: O(n), where n is the size of the string
 * Time complexity of checking presence of a string: O(n), where n is the size of the string
 * Time complexity of finding all strings that start with a given prefix: O(sum(n_i)), where n_i are the sizes of the strings that start with that prefix
+* To do: Implement testing with naive implementation
 
 ### CircularQueue <a name="circularqueue"></a>
 * Language: C++
@@ -70,6 +71,7 @@ This repository will store a collection of algorithms and data structures I impl
 * Time complexity of removal: O(1)
 * Time complexity of peeking front: O(1)
 * Time complexity of peeking back: O(1)
+* To do: Implement testing with naive implementation
 
 ### LRU Cache <a name="lrucache"></a>
 * Language: C++
@@ -78,6 +80,7 @@ This repository will store a collection of algorithms and data structures I impl
 * Space complexity: O(n), where n is the number of key-value pairs in the cache (this depends on the implementation of std::unordered_map)
 * Time complexity of insertion: O(1)
 * Time complexity of retrieval: O(1)
+* To do: Implement testing with naive implementation
 
 ### Max Min Stack <a name="maxminstack"></a>
 * Language: C++
@@ -99,6 +102,7 @@ This repository will store a collection of algorithms and data structures I impl
 * Time complexity of construction from vector: O(n*log(n)) (TODO: can be improved to O(n))
 * Time complexity of range sum query: O(log(n)) 
 * Time complexity of updating element: O(log(n))
+* Implemented testing by comparison with naive algorithm
 
 ### Quick Median <a name="quickmedian"></a>
 * Language: C++
