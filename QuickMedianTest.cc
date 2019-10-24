@@ -20,14 +20,12 @@ public:
     QuickMedianTest() {}
     QuickMedianTest(const std::vector<T>& _v) {
         v = _v;
-        std::sort(v.begin(), v.end());
     }
     ~QuickMedianTest() {}
     
     // Inserts x into the structure
     void insert(const T& x) {
         v.push_back(x);
-        std::sort(v.begin(), v.end());
     }
     
     // Erases one occurrence of x from the structure. If it's not there, returns false and does nothing
@@ -35,13 +33,13 @@ public:
         auto it = std::find(v.begin(), v.end(), x);
         if (it == v.end()) return false;
         v.erase(it);
-        std::sort(v.begin(), v.end());
         return true;
     }
     
     // Returns the median of the elements currently in the structure. If the structure is empty, returns T()
     T median() {
         if (empty()) return T();
+        std::sort(v.begin(), v.end());
         return v[(v.size()-1)/2];
     }
     

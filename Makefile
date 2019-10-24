@@ -5,7 +5,7 @@ SRC = *.cc
 HEADERS = *.hh
 TESTING = Testing.cc Testing.hh
 ALL = CircularQueueTest dijkstra FenwickTreeTest kmp kruskal LRUCacheTest manacher MaxMinStackTest QuickMedianTest TrieTest
-TEST = CircularQueueTest FenwickTreeTest MaxMinStackTest QuickMedianTest TrieTest
+TEST = CircularQueueTest FenwickTreeTest MaxMinStackTest QuickMedianTest TrieTest LRUCacheTest
 
 all: $(ALL)
 
@@ -40,7 +40,7 @@ FenwickTreeTest: FenwickTree.hh FenwickTreeTest.cc $(TESTING)
 	$(CC) $(CFLAGS) FenwickTreeTest.cc Testing.cc -o FenwickTreeTest
 
 test: $(TEST)
-	@(./CircularQueueTest && ./FenwickTreeTest && ./MaxMinStackTest && ./QuickMedianTest && ./TrieTest)
+	@(./CircularQueueTest && ./FenwickTreeTest && ./MaxMinStackTest && ./QuickMedianTest && ./TrieTest && ./LRUCacheTest)
 
 clean:
 	rm $(ALL)

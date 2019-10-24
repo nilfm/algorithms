@@ -80,7 +80,7 @@ This repository will store a collection of algorithms and data structures I impl
 * Space complexity: O(n), where n is the number of key-value pairs in the cache (this depends on the implementation of std::unordered_map)
 * Time complexity of insertion: O(1)
 * Time complexity of retrieval: O(1)
-* To do: Implement testing with naive implementation
+* Implemented testing by comparison with naive algorithm
 
 ### Max Min Stack <a name="maxminstack"></a>
 * Language: C++
