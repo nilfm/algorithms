@@ -71,7 +71,7 @@ This repository will store a collection of algorithms and data structures I impl
 * Time complexity of removal: O(1)
 * Time complexity of peeking front: O(1)
 * Time complexity of peeking back: O(1)
-* To do: Implement testing with naive implementation
+* Implemented testing by comparison with naive algorithm
 
 ### LRU Cache <a name="lrucache"></a>
 * Language: C++

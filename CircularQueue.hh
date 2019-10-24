@@ -1,7 +1,6 @@
 #ifndef __CIRCULAR_QUEUE__
 #define __CIRCULAR_QUEUE__
 
-#include <iostream>
 #include <vector>
 
 template<class T>

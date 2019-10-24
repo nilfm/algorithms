@@ -1,20 +1,81 @@
 #include "CircularQueue.hh"
+#include "Testing.hh"
+#include <iostream>
+#include <queue>
+#include <cstdlib>
+#include <cassert>
+
+template<class T>
+class CircularQueueTest {
+private:
+    std::queue<T> q; 
+    int max_size;
+public:
+    // Creates a circular queue with space for max_size elements
+    CircularQueueTest(int _max_size) {
+        max_size = _max_size;
+    };
+    ~CircularQueueTest() {};
+    
+    // Returns true if the queue is empty
+    bool empty() {
+        return q.size() == 0;
+    }
+    
+    // Returns true if the queue is full
+    bool full() {
+        return size() == max_size;
+    }
+    
+    // Returns the number of elements in the queue
+    int size() {
+        return q.size();
+    }
+    
+    // Inserts element x into the queue. If the queue is full, returns false and does nothing.
+    bool push(T& x) {
+        if (full()) return false;
+        q.push(x);
+        return true;
+    }
+    
+    // Removes the oldest element in the queue. If the queue is empty, returns false and does nothing.
+    bool pop() {
+        if (empty()) return false;
+        q.pop();
+        return true;
+    }
+    
+    // Returns the oldest element in the queue. If the queue is empty, returns T().
+    T front() {
+        if (empty()) return T();
+        return q.front();
+    }
+    
+    // Returns the newest element in the queue. If the queue is empty, returns T().
+    T back() {
+        if (empty()) return T();
+        return q.back();
+    }
+};
 
 int main() {
-    CircularQueue<int> q(5);
-    for (int i = 1; i <= 6; i++) {
-        std::cout << "Pushing " << i << std::endl;
-        std::cout << std::boolalpha << q.push(i) << std::endl;
-        std::cout << "Queue full: " << std::boolalpha << q.full() << std::endl;
-        std::cout << "Queue empty: " << std::boolalpha << q.empty() << std::endl << std::endl;
+    srand(0);
+    int NUM_TESTS = 10000000;
+    Testing::introduce("Circular Queue", NUM_TESTS);
+    CircularQueue<int> cq(10000);
+    CircularQueueTest<int> test(10000);
+    for (int i = 0; i < NUM_TESTS; i++) {
+        Testing::percentage(i, NUM_TESTS);
+        int ins = rand()%1000;
+        cq.push(ins);
+        test.push(ins);
+        if (not cq.empty() and rand()%3 == 0) {
+            cq.pop();
+            test.pop();
+        }
+        assert(cq.front() == test.front());
+        assert(cq.back() == test.back());
     }
-    std::cout << "Size: " << q.size() << std::endl;
-    std::cout << "Front element: " << q.front() << std::endl;
-    std::cout << "Back element: " << q.back() << std::endl << std::endl;
-    for (int i = 0; i < 6; i++) {
-        std::cout << "Popping..." << std::endl;
-        std::cout << std::boolalpha << q.pop() << std::endl;
-std::cout << "Queue full: " << std::boolalpha << q.full() << std::endl;
-        std::cout << "Queue empty: " << std::boolalpha << q.empty() << std::endl << std::endl;
-    }
+    Testing::success();
 }
