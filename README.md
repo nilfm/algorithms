@@ -60,7 +60,7 @@ This repository will store a collection of algorithms and data structures I impl
 * Time complexity of removal: O(n), where n is the size of the string
 * Time complexity of checking presence of a string: O(n), where n is the size of the string
 * Time complexity of finding all strings that start with a given prefix: O(sum(n_i)), where n_i are the sizes of the strings that start with that prefix
-* To do: Implement testing with naive implementation
+* Implemented testing by comparison with naive algorithm
 
 ### CircularQueue <a name="circularqueue"></a>
 * Language: C++
