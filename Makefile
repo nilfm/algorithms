@@ -6,7 +6,9 @@ TESTING := Testing.cc Testing.hh
 ALL := CircularQueue FenwickTree KMP LRUCache MaxMinStack QuickMedian Trie Manacher
 TESTS := $(ALL:%=Tests/%Test)
 
-all: $(ALL)
+.PHONY: clean all
+
+all: test
 
 Tests/%Test: Tests/%Test.cc $(TESTING)
 	@ $(CXX) $(CFLAGS) $@.cc Testing.cc -o $@
