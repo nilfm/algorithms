@@ -148,6 +148,15 @@ namespace StringAlgorithms {
         }
         return res;
     }
+    
+    std::string join(const std::vector<std::string>& words, const std::string& separator) {
+        std::string res = "";
+        for (int i = 0; i < words.size(); i++) {
+            if (i) res += separator;
+            res += words[i];
+        }
+        return res;
+    }
 }
 
 #endif
