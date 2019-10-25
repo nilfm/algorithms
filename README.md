@@ -16,6 +16,7 @@
      * [MaxMinStack <a name="user-content-maxminstack"></a>](#maxminstack-)
      * [FenwickTree <a name="user-content-fenwicktree"></a>](#fenwicktree-)
      * [QuickMedian <a name="user-content-quickmedian"></a>](#quickmedian-)
+     * [UnionFind <a name="user-content-unionfind"></a>](#unionfind-)
 
 ## Introduction <a name="intro"></a>
 This repository will store a collection of algorithms and data structures I implemented for my own learning purposes, with some information about each of them.
@@ -122,3 +123,12 @@ This repository will store a collection of algorithms and data structures I impl
 * Time complexity of inserting element: O(log(n))
 * Time complexity of erasing element: O(log(n))
 * Implemented testing by comparison with naive algorithm
+
+### Union Find <a name="unionfind"></a>
+* Language: C++
+* Implemented using std::vector<int>
+* Allows to efficiently join elements' equivalence classes, and query if two elements are in the same class. 
+* Space complexity: O(n), where n is the number of elements in the structure
+* Time complexity of connected query: O(alpha(n)), where alpha is the inverse Ackermann function, which is less than 5 for all intents and purposes
+* Time complexity of joining two classes: O(alpha(n)), where alpha is again the inverse Ackermann function
+* Used in the implementation of Kruskal's algorithm
