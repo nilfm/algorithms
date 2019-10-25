@@ -37,8 +37,8 @@ This repository will store a collection of algorithms and data structures I impl
 * Allows to efficiently find the longest palindromic substring of a given string.
 * Time complexity: O(n), where n is the size of the string.
 * Space complexity: O(n), where n is the size of the string.
-* To do: incorporate into StringAlgorithms namespace
-* To do: implement testing by comparison with naive algorithm
+* Incorporated into StringAlgorithms namespace
+* Implemented testing by comparison with naive algorithm
 
 ### Graph Algorithms <a name="graphalgos"></a>
 

@@ -5,6 +5,9 @@
 #include <vector>
 
 namespace StringAlgorithms {
+    // Separator for Manacher's algorithm
+    const char SEP = '|';
+    
     std::vector<int> compute_kmp(const std::string& pattern) {
         int n = pattern.size();
         std::vector<int> res(n);
@@ -47,6 +50,81 @@ namespace StringAlgorithms {
             if (j == n) return i-n;
         }
         return -1;
+    }
+        
+    std::string add_boundaries(const std::string& s) {
+        int n = s.size();
+        std::string res(2*n+1, ' ');
+        for (int i = 0; i < n; i++) {
+            res[2*i] = SEP;
+            res[2*i + 1] = s[i];
+        }
+        res[2*n] = SEP;
+        return res;
+    }
+
+    std::string remove_boundaries(const std::string& s) {
+        int n = s.size();
+        std::string res(n/2, ' ');
+        for (int i = 0; i < n/2; i++) {
+            res[i] = s[2*i+1];
+        }
+        return res;
+    }
+
+    std::vector<int> compute_manacher(const std::string& s) {
+        int sz = s.size();
+        std::vector<int> v(sz);
+        int c = 0, r = 0;
+        int m = 0, n = 0;
+        for (int i = 1; i < sz; i++) {
+            if (i > r) {
+                v[i] = 0;
+                m = i-1;
+                n = i+1;
+            }
+            else {
+                int ii = c*2-i;
+                if (v[ii] < r-i-1) {
+                    v[i] = v[ii];
+                    m = -1; 
+                }
+                else {
+                    v[i] = r-i;
+                    n = r+1;
+                    m = i*2-n;
+                }
+            }
+            while (m >= 0 and n < sz and s[m] == s[n]) {
+                v[i]++;
+                m--;
+                n++;
+            }
+            if (i + v[i] > r) {
+                c = i;
+                r = i + v[i];
+            }
+        }
+        return v;
+    }
+
+    std::string manacher(const std::string& s) {
+        std::string separated = add_boundaries(s);
+        int sz = separated.size();
+        std::vector<int> v = compute_manacher(separated);
+
+        
+        int len = 0;
+        int mid = 0;
+        for (int i = 1; i < sz; i++) {
+            if (len < v[i]) {
+                len = v[i];
+                mid = i;
+            }
+        }
+
+        std::string res = separated.substr(mid-len, 2*len+1);
+        return remove_boundaries(res);
     }
 }
 

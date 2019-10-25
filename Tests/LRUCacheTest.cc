@@ -81,7 +81,7 @@ int main() {
     Testing::initialize_random();
     LRUCache<int, int> cache(500);
     LRUCacheTest<int, int> test(500);
-    int NUM_TESTS = 1000000;
+    int NUM_TESTS = 100000;
     Testing::introduce("LRU Cache", NUM_TESTS);
     for (int i = 0; i < NUM_TESTS; i++) {
         Testing::percentage(i, NUM_TESTS);

@@ -3,6 +3,7 @@
 
 #include <set>
 #include <vector>
+#include <cmath>
 
 // T has to implement the comparison operator <
 template<class T>

@@ -5,7 +5,7 @@ void Testing::introduce(const std::string& name, int num_tests) {
 }
 
 void Testing::percentage(int i, int num_tests) {
-    if (i%(1 + num_tests/100) == 0) {
+    if (i%(1 + num_tests/100) == 0 or i == num_tests-1) {
         int percent = i/(1 + num_tests/100)+1;
         if (i == num_tests-1) percent = 100;
         std::cout << '\r';
