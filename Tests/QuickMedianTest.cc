@@ -66,7 +66,7 @@ public:
 
 int main() {
     Testing::initialize_random();
-    int NUM_TESTS = 10000;
+    int NUM_TESTS = 5000;
     QuickMedian<int> q;
     QuickMedianTest<int> v;
     Testing::introduce("QuickMedian", NUM_TESTS);

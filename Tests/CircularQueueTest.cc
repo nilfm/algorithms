@@ -60,7 +60,7 @@ public:
 
 int main() {
     Testing::initialize_random();
-    int NUM_TESTS = 10000000;
+    int NUM_TESTS = 1000000;
     Testing::introduce("Circular Queue", NUM_TESTS);
     CircularQueue<int> cq(10000);
     CircularQueueTest<int> test(10000);

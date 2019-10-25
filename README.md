@@ -47,16 +47,16 @@ This repository will store a collection of algorithms and data structures I impl
 * Allows to efficiently find the shortest path in a weighted graph without negative-weight cycles.
 * Time complexity: O((V+E) log(V)), where V is the number of vertices and E is the number of edges.
 * Space complexity: O(E), where E is the number of edges.
-* To do: incorporate into Graph class
-* To do: implement testing by comparison with naive algorithm
+* Incorporated into Graph class
+* Implemented testing by comparison with Bellman-Ford's algorithm
 
 #### Kruskal's algorithm <a name="kruskal"></a>
 * Language: C++
 * Allows to efficiently find the minimum spanning tree of a given weighted graph.
 * Time complexity: O(E log(E)), where E is the number of edges. 
 * Space complexity: O(E), where E is the number of edges.
-* To do: incorporate into Graph class
-* To do: implement testing by comparison with naive algorithm
+* Incorporated into Graph class
+* Implemented testing by comparison with naive algorithm
 
 ## Data Structures <a name="ds"></a>
 

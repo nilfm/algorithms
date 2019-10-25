@@ -19,7 +19,7 @@ int KMPTest(const std::string& text, const std::string& pattern) {
 
 int main() {
     Testing::initialize_random();
-    int NUM_TESTS = 100000;
+    int NUM_TESTS = 1000000;
     Testing::introduce("KMP", NUM_TESTS);
     for (int i = 0; i < NUM_TESTS; i++) {
         Testing::percentage(i, NUM_TESTS);

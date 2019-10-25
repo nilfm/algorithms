@@ -51,6 +51,10 @@ namespace StringAlgorithms {
         }
         return -1;
     }
+    
+    bool contains(const std::string& text, const std::string& pattern) {
+        return kmp(text, pattern) != -1;
+    }
         
     std::string add_boundaries(const std::string& s) {
         int n = s.size();

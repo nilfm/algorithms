@@ -62,7 +62,7 @@ int main() {
     Testing::initialize_random();
     MaxMinStack<int> st;
     MaxMinStackTest<int> test;
-    int NUM_TESTS = 50000;
+    int NUM_TESTS = 25000;
     Testing::introduce("MaxMinStack", NUM_TESTS);
     for (int i = 0; i < NUM_TESTS; i++) {
         Testing::percentage(i, NUM_TESTS);

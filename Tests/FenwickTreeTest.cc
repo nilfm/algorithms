@@ -35,7 +35,7 @@ public:
 
 int main() {
     Testing::initialize_random();
-    int NUM_TESTS = 1000000;
+    int NUM_TESTS = 100000;
     Testing::introduce("Fenwick Tree", NUM_TESTS);
     FenwickTree<int> f(10000);
     FenwickTreeTest<int> t(10000);
