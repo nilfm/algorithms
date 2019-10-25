@@ -1,5 +1,5 @@
-#include "QuickMedian.hh"
-#include "Testing.hh"
+#include "../QuickMedian.hh"
+#include "../Testing.hh"
 #include <cstdlib>
 #include <cassert>
 #include <vector>

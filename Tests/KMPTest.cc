@@ -1,7 +1,7 @@
 // KMP algorithm - Find an occurrence of pattern in text in O(n) time.
 
-#include "StringAlgorithms.hh"
-#include "Testing.hh"
+#include "../StringAlgorithms.hh"
+#include "../Testing.hh"
 #include <cassert>
 #include <iostream>
 

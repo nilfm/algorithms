@@ -1,5 +1,5 @@
-#include "FenwickTree.hh"
-#include "Testing.hh"
+#include "../FenwickTree.hh"
+#include "../Testing.hh"
 #include <vector>
 #include <iostream>
 #include <cassert>

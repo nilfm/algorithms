@@ -1,5 +1,5 @@
-#include "CircularQueue.hh"
-#include "Testing.hh"
+#include "../CircularQueue.hh"
+#include "../Testing.hh"
 #include <iostream>
 #include <queue>
 #include <cassert>
