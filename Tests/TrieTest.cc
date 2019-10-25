@@ -1,6 +1,5 @@
 #include "../Trie.hh"
 #include "../Testing.hh"
-#include <iostream>
 #include <set>
 #include <cassert>
 #include <algorithm>

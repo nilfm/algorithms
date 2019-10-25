@@ -1,6 +1,5 @@
 #include "../MaxMinStack.hh"
 #include "../Testing.hh"
-#include <iostream>
 #include <string>
 #include <vector>
 #include <cassert>

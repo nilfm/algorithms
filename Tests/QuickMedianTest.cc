@@ -4,7 +4,6 @@
 #include <cassert>
 #include <vector>
 #include <algorithm>
-#include <iostream>
 
 
 // This is an auxiliary class implementing the naive way to dynamically compute medians

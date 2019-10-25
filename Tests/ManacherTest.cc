@@ -4,7 +4,6 @@
 #include "../Testing.hh"
 #include <string>
 #include <cassert>
-#include <iostream>
 
 bool is_palindrome(const std::string& s) {
     int i = 0, j = s.size()-1;

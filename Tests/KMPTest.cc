@@ -3,7 +3,7 @@
 #include "../StringAlgorithms.hh"
 #include "../Testing.hh"
 #include <cassert>
-#include <iostream>
+#include <string>
 
 int KMPTest(const std::string& text, const std::string& pattern) {
     int n = text.size(), m = pattern.size();
