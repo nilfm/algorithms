@@ -2,7 +2,6 @@
 #include "Testing.hh"
 #include <iostream>
 #include <unordered_map>
-#include <cstdlib>
 #include <cassert>
 
 template<class K, class V>
@@ -79,18 +78,18 @@ public:
 };
 
 int main() {
+    Testing::initialize_random();
     LRUCache<int, int> cache(500);
     LRUCacheTest<int, int> test(500);
     int NUM_TESTS = 1000000;
-    srand(0);
     Testing::introduce("LRU Cache", NUM_TESTS);
     for (int i = 0; i < NUM_TESTS; i++) {
         Testing::percentage(i, NUM_TESTS);
-        int ins = rand()%1000;
+        int ins = Testing::random_int(0, 999);
         cache.put(ins, i);
         test.put(ins, i);
         
-        int check = rand()%1000;
+        int check = Testing::random_int(0, 999);
         assert(cache.get(check) == test.get(check));
     }
     Testing::success();

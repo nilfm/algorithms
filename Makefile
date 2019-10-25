@@ -4,8 +4,8 @@ CFLAGS = -std=c++17 -O2 -Wall -Wextra -Wpedantic
 SRC = *.cc
 HEADERS = *.hh
 TESTING = Testing.cc Testing.hh
-ALL = CircularQueueTest dijkstra FenwickTreeTest kmp kruskal LRUCacheTest manacher MaxMinStackTest QuickMedianTest TrieTest
-TEST = CircularQueueTest FenwickTreeTest MaxMinStackTest QuickMedianTest TrieTest LRUCacheTest
+ALL = CircularQueueTest dijkstra FenwickTreeTest KMPTest kruskal LRUCacheTest manacher MaxMinStackTest QuickMedianTest TrieTest
+TEST = CircularQueueTest FenwickTreeTest MaxMinStackTest QuickMedianTest TrieTest LRUCacheTest KMPTest
 
 all: $(ALL)
 
@@ -15,8 +15,8 @@ CircularQueueTest: CircularQueue.hh CircularQueueTest.cc $(TESTING)
 dijkstra: dijkstra.cc
 	$(CC) $(CFLAGS) dijkstra.cc -o dijkstra
 	
-kmp: kmp.cc
-	$(CC) $(CFLAGS) kmp.cc -o kmp
+KMPTest: KMPTest.cc StringAlgorithms.hh $(TESTING)
+	$(CC) $(CFLAGS) KMPTest.cc Testing.cc -o KMPTest
 	
 kruskal: kruskal.cc
 	$(CC) $(CFLAGS) kruskal.cc -o kruskal
@@ -40,7 +40,7 @@ FenwickTreeTest: FenwickTree.hh FenwickTreeTest.cc $(TESTING)
 	$(CC) $(CFLAGS) FenwickTreeTest.cc Testing.cc -o FenwickTreeTest
 
 test: $(TEST)
-	@(./CircularQueueTest && ./FenwickTreeTest && ./MaxMinStackTest && ./QuickMedianTest && ./TrieTest && ./LRUCacheTest)
+	@(./CircularQueueTest && ./FenwickTreeTest && ./MaxMinStackTest && ./QuickMedianTest && ./TrieTest && ./LRUCacheTest && ./KMPTest)
 
 clean:
 	rm $(ALL)

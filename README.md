@@ -29,12 +29,16 @@ This repository will store a collection of algorithms and data structures I impl
 * Allows to efficiently check whether a string contains another.
 * Time complexity: O(n), where n is the size of the largest string.
 * Space complexity: O(n), where n is the size of the largest string.
+* Incorporated into StringAlgorithms namespace
+* Implemented testing by comparison with naive algorithm
 
 #### Manacher's algorithm <a name="manacher"></a>
 * Language: C++
 * Allows to efficiently find the longest palindromic substring of a given string.
 * Time complexity: O(n), where n is the size of the string.
 * Space complexity: O(n), where n is the size of the string.
+* To do: incorporate into StringAlgorithms namespace
+* To do: implement testing by comparison with naive algorithm
 
 ### Graph Algorithms <a name="graphalgos"></a>
 
@@ -43,12 +47,16 @@ This repository will store a collection of algorithms and data structures I impl
 * Allows to efficiently find the shortest path in a weighted graph without negative-weight cycles.
 * Time complexity: O((V+E) log(V)), where V is the number of vertices and E is the number of edges.
 * Space complexity: O(E), where E is the number of edges.
+* To do: incorporate into Graph class
+* To do: implement testing by comparison with naive algorithm
 
 #### Kruskal's algorithm <a name="kruskal"></a>
 * Language: C++
 * Allows to efficiently find the minimum spanning tree of a given weighted graph.
 * Time complexity: O(E log(E)), where E is the number of edges. 
 * Space complexity: O(E), where E is the number of edges.
+* To do: incorporate into Graph class
+* To do: implement testing by comparison with naive algorithm
 
 ## Data Structures <a name="ds"></a>
 

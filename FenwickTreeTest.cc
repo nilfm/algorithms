@@ -3,7 +3,6 @@
 #include <vector>
 #include <iostream>
 #include <cassert>
-#include <cstdlib>
 
 template<class T>
 class FenwickTreeTest {
@@ -35,19 +34,19 @@ public:
 };
 
 int main() {
-    srand(0);
+    Testing::initialize_random();
     int NUM_TESTS = 1000000;
     Testing::introduce("Fenwick Tree", NUM_TESTS);
     FenwickTree<int> f(10000);
     FenwickTreeTest<int> t(10000);
     for (int i = 0; i < NUM_TESTS; i++) {
         Testing::percentage(i, NUM_TESTS);
-        int inc = rand()%1000;
-        int pos = rand()%10000;
+        int inc = Testing::random_int(0, 999);
+        int pos = Testing::random_int(0, 9999);
         f.add(pos, inc);
         t.add(pos, inc);
-        int last = rand()%9999 + 1;
-        int first = rand()%last;
+        int last = Testing::random_int(1, 9999);
+        int first = Testing::random_int(0, last-1);
         assert(f.sum(first, last) == t.sum(first, last));
     } 
     Testing::success();

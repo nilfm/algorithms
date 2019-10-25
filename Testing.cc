@@ -20,3 +20,25 @@ void Testing::success() {
     std::cout << std::endl << "Passed all tests" << std::endl << std::endl;    
 }
 
+void Testing::initialize_random(int seed) {
+    srand(seed);
+}
+
+int Testing::random_int(int minimum, int maximum) {
+    return rand()%(maximum-minimum+1) + minimum;
+}
+
+char Testing::random_char() {
+        const char charset[] =
+            "0123456789"
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            "abcdefghijklmnopqrstuvwxyz";
+        const size_t max_index = (sizeof(charset) - 1);
+        return charset[rand()%max_index];
+}
+
+std::string Testing::random_string(int length) {
+    std::string str(length,0);
+    std::generate_n(str.begin(), length, random_char);
+    return str;
+}

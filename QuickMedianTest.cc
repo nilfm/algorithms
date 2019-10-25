@@ -4,7 +4,6 @@
 #include <cassert>
 #include <vector>
 #include <algorithm>
-#include <cstdlib>
 #include <iostream>
 
 
@@ -66,17 +65,17 @@ public:
 
 
 int main() {
-    int NUM_TESTS = 20000;
-    srand(0);
+    Testing::initialize_random();
+    int NUM_TESTS = 10000;
     QuickMedian<int> q;
     QuickMedianTest<int> v;
     Testing::introduce("QuickMedian", NUM_TESTS);
     for (int i = 0; i < NUM_TESTS; i++) {
         Testing::percentage(i, NUM_TESTS);
-        int ins = rand()%1000;
+        int ins = Testing::random_int(0, 999);
         q.insert(ins);
         v.insert(ins);
-        if (rand()%10 == 0) {
+        if (Testing::random_int(0, 9) == 0) {
             int del = v.random();
             q.erase(del);
             v.erase(del);

@@ -3,7 +3,6 @@
 #include <iostream>
 #include <set>
 #include <cassert>
-#include <cstdlib>
 #include <algorithm>
 
 class TrieTest {
@@ -68,42 +67,28 @@ public:
     }
 };
 
-char random_char() {
-        const char charset[] =
-            "0123456789"
-            "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-            "abcdefghijklmnopqrstuvwxyz";
-        const size_t max_index = (sizeof(charset) - 1);
-        return charset[rand()%max_index];
-}
-
-std::string random_string(size_t length) {
-    std::string str(length,0);
-    std::generate_n(str.begin(), length, random_char);
-    return str;
-}
 
 int main() {
+    Testing::initialize_random();
     Trie t;
     TrieTest test;
-    int NUM_TESTS = 25000;
-    srand(0);
+    int NUM_TESTS = 20000;
     Testing::introduce("Trie", NUM_TESTS);
     for (int i = 0; i < NUM_TESTS; i++) {
         Testing::percentage(i, NUM_TESTS);
-        std::string ins = random_string(rand()%15 + 1);
+        std::string ins = Testing::random_string(Testing::random_int(1, 15));
 
         bool ins1 = t.insert(ins);
         bool ins2 = test.insert(ins);
         assert(ins1 == ins2);
         
-        if (t.size() != 0 and rand()%3) {
+        if (t.size() != 0 and Testing::random_int(0, 2)) {
             std::string to_remove = test.random();
             bool rem1 = t.remove(to_remove);
             bool rem2  = test.remove(to_remove);
             assert(rem1 == rem2);
         }
-        std::string check = random_string(rand()%5 + 1);
+        std::string check = Testing::random_string(Testing::random_int(1, 5));
         assert(t.words(check) == test.words(check));
     }
     Testing::success();

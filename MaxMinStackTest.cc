@@ -3,7 +3,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <cstdlib>
 #include <cassert>
 
 template<class T>
@@ -60,17 +59,17 @@ public:
 
 
 int main() {
+    Testing::initialize_random();
     MaxMinStack<int> st;
     MaxMinStackTest<int> test;
-    int NUM_TESTS = 100000;
-    srand(0);
+    int NUM_TESTS = 50000;
     Testing::introduce("MaxMinStack", NUM_TESTS);
     for (int i = 0; i < NUM_TESTS; i++) {
         Testing::percentage(i, NUM_TESTS);
-        int ins = rand()%1000;
+        int ins = Testing::random_int(0, 999);
         st.push(ins);
         test.push(ins);
-        if (not st.empty() and rand()%3 == 0) {
+        if (not st.empty() and Testing::random_int(0, 2) == 0) {
             st.pop();
             test.pop();
         }
