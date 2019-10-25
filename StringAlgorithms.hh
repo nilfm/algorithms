@@ -33,8 +33,8 @@ namespace StringAlgorithms {
         return res;
     }
 
-    int kmp(const std::string& text, const std::string& pattern) {
-        std::vector<int> v = compute_kmp(pattern);
+    int kmp(const std::string& text, const std::string& pattern, std::vector<int> computed = {}) {
+        if (computed.size() == 0) computed = compute_kmp(pattern);
         int m = text.size();
         int n = pattern.size();
         int i = 0, j = 0;
@@ -44,7 +44,7 @@ namespace StringAlgorithms {
                 j++;
             }
             else {
-                if (j != 0) j = v[j-1];
+                if (j != 0) j = computed[j-1];
                 else i++;
             }
             if (j == n) return i-n;
@@ -129,6 +129,24 @@ namespace StringAlgorithms {
 
         std::string res = separated.substr(mid-len, 2*len+1);
         return remove_boundaries(res);
+    }
+    
+    std::vector<std::string> split(const std::string& text, const std::string& pattern) {
+        std::vector<int> v = compute_kmp(pattern);
+        std::vector<std::string> res;
+        std::string curr = text;
+        int pos;
+        while (pos != -1) {
+            pos = kmp(curr, pattern, v);
+            if (pos == -1) {
+                if (curr.size() != 0) res.push_back(curr);
+            }
+            else {
+                if (pos != 0) res.push_back(std::string(curr, 0, pos));
+                curr = std::string(curr, pos+pattern.size());
+            }
+        }
+        return res;
     }
 }
 
