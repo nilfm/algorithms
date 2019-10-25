@@ -1,19 +1,19 @@
 CXX = g++
 CXXFLAGS = -std=c++17 -O2 -Wall -Wextra -Wpedantic
 
-LIBS := StringAlgorithm.hh
+LIBS := *.hh *.cc
 TESTING := Testing.cc Testing.hh
-ALL := CircularQueue FenwickTree KMP LRUCache MaxMinStack QuickMedian Trie Manacher Kruskal Dijkstra
-TESTS := $(ALL:%=Tests/%Test)
+TEST_RAW = $( ls Tests )
+TEST_FILES = $(TEST_RAW:%.cc=%)
 
 .PHONY: clean all test test-%
 
 all: test
 
-Tests/%Test: Tests/%Test.cc $(TESTING)
+Tests/%Test: Tests/%Test.cc $(TESTING) $(LIBS)
 	@ $(CXX) $(CFLAGS) $@.cc Testing.cc -o $@
 
-test: $(TESTS) $(TESTING)
+test: $(TEST_FILES) $(TESTING)
 	@run-parts --exit-on-error Tests
 
 test-%: Tests/%*Test $(TESTING)
