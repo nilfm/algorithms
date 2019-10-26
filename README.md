@@ -12,11 +12,12 @@
   * [Data Structures <a name="user-content-ds"></a>](#data-structures-)
      * [Trie <a name="user-content-trie"></a>](#trie-)
      * [CircularQueue <a name="user-content-circularqueue"></a>](#circularqueue-)
-     * [LRUCache <a name="user-content-lrucache"></a>](#lrucache-)
-     * [MaxMinStack <a name="user-content-maxminstack"></a>](#maxminstack-)
-     * [FenwickTree <a name="user-content-fenwicktree"></a>](#fenwicktree-)
-     * [QuickMedian <a name="user-content-quickmedian"></a>](#quickmedian-)
-     * [UnionFind <a name="user-content-unionfind"></a>](#unionfind-)
+     * [LRUCache <a name="user-content-lru"></a>](#lrucache-)
+     * [MaxMinStack <a name="user-content-max"></a>](#maxminstack-)
+     * [FenwickTree <a name="user-content-fenwick"></a>](#fenwicktree-)
+     * [SegmentTree <a name="user-content-segment"></a>](#segmenttree-)
+     * [QuickMedian <a name="user-content-quick"></a>](#quickmedian-)
+     * [UnionFind <a name="user-content-union"></a>](#unionfind-)
 
 ## Introduction <a name="intro"></a>
 This repository will store a collection of algorithms and data structures I implemented for my own learning purposes, with some information about each of them.
@@ -110,6 +111,16 @@ This repository will store a collection of algorithms and data structures I impl
 * Space complexity: O(n), where n is the number of elements in the tree.
 * Time complexity of construction from vector: O(n*log(n)) (TODO: can be improved to O(n))
 * Time complexity of range sum query: O(log(n)) 
+* Time complexity of updating element: O(log(n))
+* Implemented testing by comparison with naive algorithm
+
+### Segment Tree <a name="segmenttree"></a>
+* Language: C++
+* Implemented using std::vector<T>
+* Allows to efficiently query for an associative operation applied to a range, and update elements.
+* Space complexity: O(n), where n is the number of elements in the tree.
+* Time complexity of construction from vector: O(n)
+* Time complexity of range query: O(log(n)) 
 * Time complexity of updating element: O(log(n))
 * Implemented testing by comparison with naive algorithm
 
