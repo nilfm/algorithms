@@ -12,12 +12,12 @@
   * [Data Structures <a name="user-content-ds"></a>](#data-structures-)
      * [Trie <a name="user-content-trie"></a>](#trie-)
      * [CircularQueue <a name="user-content-circularqueue"></a>](#circularqueue-)
-     * [LRUCache <a name="user-content-lru"></a>](#lrucache-)
-     * [MaxMinStack <a name="user-content-max"></a>](#maxminstack-)
-     * [FenwickTree <a name="user-content-fenwick"></a>](#fenwicktree-)
-     * [SegmentTree <a name="user-content-segment"></a>](#segmenttree-)
-     * [QuickMedian <a name="user-content-quick"></a>](#quickmedian-)
-     * [UnionFind <a name="user-content-union"></a>](#unionfind-)
+     * [LRUCache <a name="user-content-lru"></a>](#lru-cache-)
+     * [MaxMinStack <a name="user-content-maxminstack"></a>](#max-min-stack-)
+     * [FenwickTree <a name="user-content-fenwicktre"></a>](#fenwick-tree-)
+     * [SegmentTree <a name="user-content-segmenttree"><e/a>](#segment-tree-)
+     * [QuickMedian <a name="user-content-quickmedian"></a>](#quick-median-)
+     * [UnionFind <a name="user-content-unionfind"></a>](#union-find-)
 
 ## Introduction <a name="intro"></a>
 This repository will store a collection of algorithms and data structures I implemented for my own learning purposes, with some information about each of them.
