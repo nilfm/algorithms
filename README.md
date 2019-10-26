@@ -14,8 +14,8 @@
      * [CircularQueue <a name="user-content-circularqueue"></a>](#circularqueue-)
      * [LRUCache <a name="user-content-lru"></a>](#lru-cache-)
      * [MaxMinStack <a name="user-content-maxminstack"></a>](#max-min-stack-)
-     * [FenwickTree <a name="user-content-fenwicktre"></a>](#fenwick-tree-)
-     * [SegmentTree <a name="user-content-segmenttree"><e/a>](#segment-tree-)
+     * [FenwickTree <a name="user-content-fenwicktree"></a>](#fenwick-tree-)
+     * [SegmentTree <a name="user-content-segmenttree"></a>](#segment-tree-)
      * [QuickMedian <a name="user-content-quickmedian"></a>](#quick-median-)
      * [UnionFind <a name="user-content-unionfind"></a>](#union-find-)
 
