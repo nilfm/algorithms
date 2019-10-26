@@ -3,8 +3,8 @@ CXXFLAGS = -std=c++17 -O2 -Wall -Wextra -Wpedantic
 
 LIBS := *.hh *.cc
 TESTING := Testing.cc Testing.hh
-TEST_RAW := $(shell ls Tests) 
-TEST_FILES := $(TEST_RAW:%.cc=Tests/%)
+TEST_RAW := $(shell ls Tests | grep -e .cc$)
+TEST_FILES := $(patsubst %.cc, Tests/%, $(TEST_RAW))
 
 .PHONY: clean all test test-%
 
@@ -14,8 +14,6 @@ Tests/%Test: Tests/%Test.cc $(TESTING) $(LIBS)
 	@ $(CXX) $(CFLAGS) $@.cc Testing.cc -o $@
 
 test: $(TEST_FILES) $(TESTING)
-	@ echo $(TEST_RAW)
-	@ echo $(TEST_FILES)
 	@run-parts --exit-on-error Tests
 
 test-%: Tests/$*Test $(TESTING)
